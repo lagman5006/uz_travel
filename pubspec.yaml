@@ -1,0 +1,111 @@
+name: uz_travel
+description: "A new Flutter project."
+
+
+publish_to: 'none'
+
+
+
+
+
+
+
+
+
+
+
+
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+
+
+
+
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+
+  cupertino_icons: ^1.0.8
+  firebase_core: ^3.14.0
+  firebase_auth: ^5.6.0
+  flutter_screenutil: ^5.9.3
+  flutter_gen_runner: ^5.10.0
+  vector_graphics: ^1.1.19
+  cloud_firestore: ^5.6.9
+  provider: ^6.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+
+
+
+
+  flutter_lints: ^6.0.0
+  build_runner: ^2.5.4
+
+
+
+
+
+flutter:
+
+
+  uses-material-design: true
+
+flutter_gen:
+  output: lib/gen/
+  line_length: 80
+  integrations:
+    image: true
+    flutter_svg: true
+    rive: true
+    lottie: true
+
+    assets:
+      - assets/images/
+      - assets/svgs/
+      - assets/fonts/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

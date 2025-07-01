@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "672973784855",
+    "project_id": "uztravel-5f6ff",
+    "storage_bucket": "uztravel-5f6ff.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672973784855:android:7dca5c20f2119911571952",
+        "android_client_info": {
+          "package_name": "uz.uztravel.uz_travel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDDyOvJ30NkPQ-7PMW2aCy3c12rDzJc1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
