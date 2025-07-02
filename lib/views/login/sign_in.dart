@@ -143,11 +143,9 @@ class _SignInState extends State<SignIn> {
                         ),
                       ),
                       onPressed: () {
-                        uzTravelProvider.signUp(
+                        uzTravelProvider.signIn(
                           emailController.text.trim(),
                           passwordController.text.trim(),
-                          firsNameController.text.trim(),
-                          lastNameController.text.trim(),
                         );
                         Navigator.pushReplacement(
                           context,
@@ -185,7 +183,7 @@ class _SignInState extends State<SignIn> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 20.h,),
+                    SizedBox(height: 20.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       spacing: 10,
