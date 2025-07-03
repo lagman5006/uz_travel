@@ -31,8 +31,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
-
   cupertino_icons: ^1.0.8
   firebase_core: ^3.15.0
   firebase_auth: ^5.6.1
@@ -42,6 +40,7 @@ dependencies:
   cloud_firestore: ^5.6.10
   provider: ^6.1.5
   flutter_svg: ^2.2.0
+  easy_localization: ^3.0.7+1
 
 dev_dependencies:
   flutter_test:
@@ -68,11 +67,15 @@ flutter:
     - assets/svgs/
     - assets/fonts/
     - assets/images/
+    - assets/lang/
+
   fonts:
     - family: Geometr415 Blk BT
       fonts:
         - asset: assets/fonts/GIL_____.ttf
-        - asset: assets/fonts/ufonts.com_geometr415-blk-bt-black.ttf  
+        - asset: assets/fonts/ufonts.com_geometr415-blk-bt-black.ttf
+
+
 
     - family: Gilroy
       fonts:

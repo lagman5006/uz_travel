@@ -1,0 +1,25 @@
+{
+  "sign_up_now": "Sign up now",
+  "please_fill_details": "Please fill the details and create account",
+  "first_name": "First Name",
+  "first_name_required": "First name is required",
+  "first_name_invalid": "Enter a valid first name",
+  "last_name": "Last Name",
+  "last_name_required": "Last name is required",
+  "last_name_invalid": "Enter a valid last name",
+  "email": "Email",
+  "email_required": "Email is required",
+  "email_invalid": "Enter a valid email",
+  "password": "Password",
+  "password_hint": "Password must be 8 character",
+  "sign_up": "Sign Up",
+  "already_have_account": "Already have an Account ",
+  "sign_in": "Sign in",
+  "or_connect": "Or connect",
+
+  "sign_in_now": "Sign in now",
+  "please_sign_in": "Please sign in to continue our app",
+  "forget_password": "Forget Password",
+  "dont_have_account": "Don't have an account? ",
+  "sign_up_action": "Sign up"
+}
