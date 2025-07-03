@@ -20,11 +20,7 @@ void main() async {
 
   runApp(
     EasyLocalization(
-      supportedLocales: const [
-        Locale('en'),
-        Locale('ru'),
-        Locale('uz'),
-      ],
+      supportedLocales: const [Locale('en'), Locale('ru'), Locale('uz')],
       path: 'assets/lang',
       fallbackLocale: const Locale('en'),
       child: const MyApp(),
@@ -43,8 +39,14 @@ class MyApp extends StatelessWidget {
         return ScreenUtilInit(
           designSize: Size(360, 690),
           child: MaterialApp(
-            theme: Apptheme.lightTheme, // 🌞light theme
-            darkTheme: Apptheme.darkTheme, // 🌙 dark theme
+            locale: context.locale,
+            supportedLocales: context.supportedLocales,
+            localizationsDelegates: context.localizationDelegates,
+
+            theme: Apptheme.lightTheme,
+            // 🌞light theme
+            darkTheme: Apptheme.darkTheme,
+            // 🌙 dark theme
             themeMode: Provider.of<UzTravelProvider>(context).themeMode,
             debugShowCheckedModeBanner: false,
             home: StreamBuilder(
