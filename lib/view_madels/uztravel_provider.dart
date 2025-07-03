@@ -28,30 +28,27 @@ class UzTravelProvider extends ChangeNotifier {
   ) async {
     isLoading = true;
     notifyListeners();
+
     final user = await uzTravelService.signUp(
       email: email,
       password: password,
       firstName: firstName,
       lastName: lastName,
     );
+
     isLoading = false;
     notifyListeners();
     return user;
   }
-
-  // sign In
 
   Future<User?> signIn(String email, String password) async {
     isLoading = true;
     notifyListeners();
+
     final user = await uzTravelService.signIn(email: email, password: password);
+
     isLoading = false;
     notifyListeners();
     return user;
-  }
-
-  void updateIndex(int index){
-    currentIndex = index;
-    notifyListeners();
   }
 }

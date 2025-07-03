@@ -7,6 +7,7 @@ import 'package:uz_travel/madels/firebase_options.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
 import 'package:uz_travel/views/home_page.dart';
 import 'package:uz_travel/views/login/sign_up.dart';
+import 'package:uz_travel/views/splash_page.dart';
 import 'package:uz_travel/widgets/apptheme.dart';
 
 void main() async {
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
               stream: FirebaseAuth.instance.authStateChanges(),
               builder: (context, snapshot) {
                 if (snapshot.data == null) {
-                  return SignUp();
+                  return SplashPage();
                 } else {
                   return HomePage();
                 }
