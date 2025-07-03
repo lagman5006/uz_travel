@@ -8,6 +8,7 @@ import 'package:uz_travel/server/google_auth_service.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
 import 'package:uz_travel/views/home_page.dart';
 import 'package:uz_travel/views/login/sign_up.dart';
+import 'package:uz_travel/views/password_screen.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -25,7 +26,6 @@ class _SignInState extends State<SignIn> {
   final TextEditingController firsNameController = TextEditingController();
 
   final TextEditingController lastNameController = TextEditingController();
-
 
   bool obscureText = true;
 
@@ -151,9 +151,19 @@ class _SignInState extends State<SignIn> {
                       SizedBox(height: 8.h),
                       Align(
                         alignment: Alignment.centerRight,
-                        child: Text(
-                          'forget_password'.tr(),
-                          style: const TextStyle(color: Color(0xFF0D6EFD)),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PasswordScreen(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            'forget_password'.tr(),
+                            style: const TextStyle(color: Color(0xFF0D6EFD)),
+                          ),
                         ),
                       ),
                       SizedBox(height: 10.h),

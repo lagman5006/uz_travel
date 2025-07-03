@@ -18,12 +18,15 @@
   "or_connect": "Or connect",
   "sign_in_now": "Sign in now",
   "please_sign_in": "Please sign in to continue our app",
-  "forget_password": "Forget Password",
+  "forget_password": "Forgot Password",
   "dont_have_account": "Don't have an account? ",
   "sign_up_action": "Sign up",
   "life_is_short_and_the_world_is_wide": "Life is short and the world is wide",
   "friends_tours_description": "At Friends tours and travel, we customize reliable and trustworthy educational tours to destinations all over the world",
   "its_a_big_world_out_there_go_explore": "It's a big world out there go explore",
   "explore_adventure": "To get the best of your adventure you just need to leave and go where you like. we are waiting for you",
-  "people_dont_take_trips_trips_take_people": "People don't take trips, trips take people"
+  "people_dont_take_trips_trips_take_people": "People don't take trips, trips take people",
+  "check_your_email": "Check your email",
+  "we_have_sent_password_recovery_instruction": "We have sent password recovery instruction to your email",
+  "reset_password": "Reset Password"
 }
