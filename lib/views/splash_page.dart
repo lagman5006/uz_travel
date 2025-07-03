@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uz_travel/gen/fonts.gen.dart';
+import 'package:uz_travel/views/language_screen.dart';
 import 'package:uz_travel/views/onboarding_page.dart';
 
 class SplashPage extends StatefulWidget {
@@ -19,7 +20,7 @@ class _SplashPageState extends State<SplashPage> {
         context,
         MaterialPageRoute(
           builder: (context) {
-            return OnboardingPage();
+            return LanguageSelectScreen();
           },
         ),
       );
@@ -34,7 +35,7 @@ class _SplashPageState extends State<SplashPage> {
         child: Text(
           "UzStrip",
           style: TextStyle(
-            fontSize: 20.sp,
+            fontSize: 50.sp,
             color: Colors.white,
             fontFamily: FontFamily.geometr415BlkBT,
           ),
