@@ -12,7 +12,20 @@
           "package_name": "uz.uztravel.uz_travel"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "672973784855-0q97ii2kn5oh8vvvd83eg8go45s6v8up.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "uz.uztravel.uz_travel",
+            "certificate_hash": "9502058dbdf4b508d8135b5257ac2b8aca80e620"
+          }
+        },
+        {
+          "client_id": "672973784855-75vq23r989ujkgh589q0ra27jcgm9uet.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDDDyOvJ30NkPQ-7PMW2aCy3c12rDzJc1Q"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672973784855-75vq23r989ujkgh589q0ra27jcgm9uet.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "672973784855-8r6kq4v9mtl78kth5agvtcbean98spjb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "uz.uztravel.uzTravel"
+              }
+            }
+          ]
         }
       }
     }
