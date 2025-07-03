@@ -7,6 +7,7 @@ import 'package:uz_travel/madels/firebase_options.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
 import 'package:uz_travel/views/home_page.dart';
 import 'package:uz_travel/views/login/sign_up.dart';
+import 'package:uz_travel/widgets/apptheme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
         return ScreenUtilInit(
           designSize: Size(360, 690),
           child: MaterialApp(
+            theme: Apptheme.lightTheme, // 🌞light theme
+            darkTheme: Apptheme.darkTheme, // 🌙 dark theme
+            themeMode: Provider.of<UzTravelProvider>(context).themeMode,
             debugShowCheckedModeBanner: false,
             home: StreamBuilder(
               stream: FirebaseAuth.instance.authStateChanges(),

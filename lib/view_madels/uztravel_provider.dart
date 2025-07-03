@@ -1,11 +1,23 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:uz_travel/server/uztravel_service.dart';
 
 class UzTravelProvider extends ChangeNotifier {
   UzTravelService uzTravelService = UzTravelService();
   int currentIndex = 0;
   bool isLoading = false;
+
+  ThemeMode _themeMode = ThemeMode.system;
+  ThemeMode get themeMode => _themeMode;
+
+  bool get isDarkMode => _themeMode == ThemeMode.dark;
+
+  // switch theme
+  void toggleTheme(bool isOn){
+    _themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
+    notifyListeners();
+  }
 
   //sign Up
   Future<User?> signUp(

@@ -32,7 +32,20 @@ class _SignUpState extends State<SignUp> {
     return Consumer<UzTravelProvider>(
       builder: (context, uzTravelProvider, child) {
         return Scaffold(
-          backgroundColor: Colors.white,
+          appBar: AppBar(
+            actions: [
+              SizedBox(
+                width: 30.w,
+                height: 30.h,
+                child: SwitchListTile(
+                  value: uzTravelProvider.isDarkMode,
+                  onChanged: (value) {
+                    uzTravelProvider.toggleTheme(value);
+                  },
+                ),
+              ),
+            ],
+          ),
           body: SafeArea(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
