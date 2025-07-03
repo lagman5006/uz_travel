@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uz_travel/gen/fonts.gen.dart';
 import 'package:uz_travel/views/language_screen.dart';
-import 'package:uz_travel/views/onboarding_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
