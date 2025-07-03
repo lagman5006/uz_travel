@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uz_travel/gen/assets.gen.dart';
 import 'package:uz_travel/gen/fonts.gen.dart';
 import 'package:uz_travel/views/onboarding_page.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class LanguageSelectScreen extends StatefulWidget {
   const LanguageSelectScreen({super.key});
@@ -17,7 +18,7 @@ class _LanguageSelectScreenState extends State<LanguageSelectScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff0D6EFD),
+      backgroundColor: const Color(0xff0D6EFD),
       body: Center(
         child: SingleChildScrollView(
           scrollDirection: Axis.horizontal,
@@ -44,21 +45,20 @@ class _LanguageSelectScreenState extends State<LanguageSelectScreen> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          // Rasm
+          // Til bayrog‘i yoki rasmi
           Image.asset(imagePath, width: 35.w, height: 30.h),
           SizedBox(height: 8.h),
-          // Til nomi
+          // Til kodi (UZ, RU, EN)
           Text(
             lang,
             style: TextStyle(
               fontSize: 25.sp,
               color: isSelected ? Colors.blue : Colors.white,
-
               fontFamily: FontFamily.gilroy,
             ),
           ),
           SizedBox(height: 10.h),
-          // Dumaloq belgisi
+          // Dumaloq indikator
           Container(
             width: 18.w,
             height: 18.h,
@@ -78,7 +78,20 @@ class _LanguageSelectScreenState extends State<LanguageSelectScreen> {
       selectedLang = lang;
     });
 
-    Future.delayed(Duration(milliseconds: 100), () {
+    // Tilga mos Locale ni belgilaymiz
+    Locale newLocale;
+    if (lang == 'UZ') {
+      newLocale = const Locale('uz');
+    } else if (lang == 'RU') {
+      newLocale = const Locale('ru',);
+    } else {
+      newLocale = const Locale('en');
+    }
+
+    context.setLocale(newLocale);
+
+    // Onboarding sahifasiga o‘tamiz
+    Future.delayed(const Duration(milliseconds: 150), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (_) => OnboardingPage()),

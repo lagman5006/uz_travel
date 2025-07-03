@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:uz_travel/gen/fonts.gen.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
 import 'package:uz_travel/views/login/sign_up.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class OnboardingPage extends StatelessWidget {
   final PageController _pageController = PageController();
@@ -45,8 +46,8 @@ class OnboardingPage extends StatelessWidget {
                                 SizedBox(height: 40.h),
                                 RichText(
                                   text: TextSpan(
-                                    text:
-                                        "Life is short and the\n     world is ",
+                                    text: "life_is_short_and_the_world_is_wide"
+                                        .tr(),
                                     style: TextStyle(
                                       fontFamily: FontFamily.geometr415BlkBT,
                                       fontSize: 25.sp,
@@ -54,7 +55,7 @@ class OnboardingPage extends StatelessWidget {
                                     ),
                                     children: [
                                       TextSpan(
-                                        text: "wide",
+                                        text: "wide".tr(),
                                         style: TextStyle(
                                           color: Colors.deepOrange,
                                         ),
@@ -68,7 +69,7 @@ class OnboardingPage extends StatelessWidget {
                                     horizontal: 32.w,
                                   ),
                                   child: Text(
-                                    "At Friends tours and travel, we customize\nreliable and trustworthy educational tours\nto destinations all over the world",
+                                    "friends_tours_description".tr(),
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontSize: 16.sp,
@@ -85,10 +86,15 @@ class OnboardingPage extends StatelessWidget {
                           right: 24.w,
                           child: GestureDetector(
                             onTap: () {
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SignUp(),
+                                ),
+                              );
                             },
                             child: Text(
-                              "Skip",
+                              "skip",
                               style: TextStyle(
                                 fontSize: 14.sp,
                                 color: Colors.white,
@@ -142,7 +148,12 @@ class OnboardingPage extends StatelessWidget {
                               duration: Duration(milliseconds: 300),
                               curve: Curves.easeInOut,
                             );
-                          } else {}
+                          } else {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(builder: (context) => SignUp()),
+                            );
+                          }
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.blue,
@@ -151,7 +162,10 @@ class OnboardingPage extends StatelessWidget {
                           ),
                         ),
                         child: Text(
-                          provider.currentIndex == 0 ? "Get Started" : "Next",
+                          provider.currentIndex == 0
+                              ? "get_started"
+                                    .tr() 
+                              : "next".tr(),
                           style: TextStyle(
                             fontSize: 16.sp,
                             color: Colors.white,
