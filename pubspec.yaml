@@ -65,20 +65,29 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
     - assets/svgs/
     - assets/fonts/
+    - assets/images/
+  fonts:
+    - family: Geometr415 Blk BT
+      fonts:
+        - asset: assets/fonts/GIL_____.ttf
+        - asset: assets/fonts/ufonts.com_geometr415-blk-bt-black.ttf  
 
-
-
+    - family: Gilroy
+      fonts:
+        - asset: assets/fonts/GIL_____.ttf
 flutter_gen:
   output: lib/gen/
   line_length: 80
   integrations:
     image: true
     flutter_svg: true
-    rive: true
-    lottie: true
+    # lottie: true # Uncomment if use Lottie
+  assets:
+    enabled: true
+  fonts:
+    enabled: true
 
 
 

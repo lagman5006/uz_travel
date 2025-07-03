@@ -6,7 +6,7 @@ import 'package:uz_travel/view_madels/uztravel_provider.dart';
 import 'package:uz_travel/views/home_page.dart';
 
 class SignIn extends StatefulWidget {
-  SignIn({super.key});
+ const SignIn({super.key});
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -21,7 +21,6 @@ class _SignInState extends State<SignIn> {
 
   final TextEditingController lastNameController = TextEditingController();
 
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   bool obscureText = true;
 
