@@ -29,6 +29,9 @@ class $AssetsFontsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/flag_en.jpg
+  AssetGenImage get flagEn => const AssetGenImage('assets/images/flag_en.jpg');
+
   /// File path: assets/images/page_image1.jpg
   AssetGenImage get pageImage1 =>
       const AssetGenImage('assets/images/page_image1.jpg');
@@ -42,7 +45,12 @@ class $AssetsImagesGen {
       const AssetGenImage('assets/images/page_image3.jpg');
 
   /// List of all assets
-  List<AssetGenImage> get values => [pageImage1, pageImage2, pageImage3];
+  List<AssetGenImage> get values => [
+    flagEn,
+    pageImage1,
+    pageImage2,
+    pageImage3,
+  ];
 }
 
 class $AssetsSvgsGen {
