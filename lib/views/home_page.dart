@@ -12,7 +12,6 @@ class HomePage extends StatelessWidget {
     return Consumer<UzTravelProvider>(
       builder: (context, uzTravelProvider, child) {
         return Scaffold(
-          backgroundColor: Colors.white,
           appBar: AppBar(
 
             backgroundColor: Colors.white,

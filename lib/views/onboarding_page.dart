@@ -19,7 +19,7 @@ class OnboardingPage extends StatelessWidget {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 520.h,
+                    height: 550.h,
                     child: Stack(
                       children: [
                         PageView.builder(

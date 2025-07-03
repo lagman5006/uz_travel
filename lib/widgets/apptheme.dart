@@ -15,6 +15,7 @@ class Apptheme{
   );
 
   static final ThemeData darkTheme = ThemeData(
+    appBarTheme: AppBarTheme(color: Colors.black),
     brightness: Brightness.dark,
     primaryColor: Colors.blue,
     scaffoldBackgroundColor: Colors.black,
@@ -23,7 +24,7 @@ class Apptheme{
       secondary: Colors.blueGrey,
     ),
     textTheme: TextTheme(
-      bodyLarge: TextStyle(color: Colors.white),
+      bodyLarge: TextStyle(color: Colors.red),
 
     )
   );

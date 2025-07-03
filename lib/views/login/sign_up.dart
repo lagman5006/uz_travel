@@ -31,10 +31,8 @@ class _SignUpState extends State<SignUp> {
     return Consumer<UzTravelProvider>(
       builder: (context, uzTravelProvider, child) {
         return Scaffold(
-          backgroundColor: Colors.white,
           appBar: AppBar(
             elevation: 0,
-            backgroundColor: Colors.white,
             automaticallyImplyLeading: false,
             leading: GestureDetector(
               onTap: () {
@@ -53,6 +51,16 @@ class _SignUpState extends State<SignUp> {
             ),
 
             actions: [
+              SizedBox(
+                width: 30.w,
+                height: 30.h,
+                child: SwitchListTile(
+                  value: uzTravelProvider.isDarkMode,
+                  onChanged: (value) {
+                    uzTravelProvider.toggleTheme(value);
+                  },
+                ),
+              ),
               PopupMenuButton<Locale>(
                 icon: const Icon(Icons.language, color: Colors.black),
                 onSelected: (Locale locale) {
@@ -111,6 +119,7 @@ class _SignUpState extends State<SignUp> {
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           hintText: 'first_name'.tr(),
+                          hintStyle: Theme.of(context).textTheme.bodyLarge,
                           filled: true,
                           fillColor: const Color(0xFFF7F7F9),
                           border: OutlineInputBorder(
