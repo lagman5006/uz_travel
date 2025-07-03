@@ -9,6 +9,7 @@ import 'package:uz_travel/views/home_page.dart';
 import 'package:uz_travel/views/login/sign_up.dart';
 import 'package:uz_travel/views/splash_page.dart';
 import 'package:uz_travel/widgets/apptheme.dart';
+import 'package:uz_travel/views/splash_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

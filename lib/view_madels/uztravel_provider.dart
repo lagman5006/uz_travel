@@ -1,11 +1,24 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:uz_travel/gen/assets.gen.dart';
 import 'package:uz_travel/server/uztravel_service.dart';
 
 class UzTravelProvider extends ChangeNotifier {
-  UzTravelService uzTravelService = UzTravelService();
+  final UzTravelService uzTravelService = UzTravelService();
+
   int currentIndex = 0;
+  List<String> imagesPath = [
+    Assets.images.pageImage1.path,
+    Assets.images.pageImage2.path,
+    Assets.images.pageImage3.path,
+  ];
+
+  void updateIndex(int index) {
+    currentIndex = index;
+    notifyListeners();
+  }
+
   bool isLoading = false;
 
   ThemeMode _themeMode = ThemeMode.system;
