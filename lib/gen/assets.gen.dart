@@ -29,8 +29,8 @@ class $AssetsFontsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/flag_en.jpg
-  AssetGenImage get flagEn => const AssetGenImage('assets/images/flag_en.jpg');
+  /// File path: assets/images/en.png
+  AssetGenImage get en => const AssetGenImage('assets/images/en.png');
 
   /// File path: assets/images/page_image1.jpg
   AssetGenImage get pageImage1 =>
@@ -44,13 +44,37 @@ class $AssetsImagesGen {
   AssetGenImage get pageImage3 =>
       const AssetGenImage('assets/images/page_image3.jpg');
 
+  /// File path: assets/images/rus.png
+  AssetGenImage get rus => const AssetGenImage('assets/images/rus.png');
+
+  /// File path: assets/images/uzb.png
+  AssetGenImage get uzb => const AssetGenImage('assets/images/uzb.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
-    flagEn,
+    en,
     pageImage1,
     pageImage2,
     pageImage3,
+    rus,
+    uzb,
   ];
+}
+
+class $AssetsLangGen {
+  const $AssetsLangGen();
+
+  /// File path: assets/lang/en.json
+  String get en => 'assets/lang/en.json';
+
+  /// File path: assets/lang/ru.json
+  String get ru => 'assets/lang/ru.json';
+
+  /// File path: assets/lang/uz.json
+  String get uz => 'assets/lang/uz.json';
+
+  /// List of all assets
+  List<String> get values => [en, ru, uz];
 }
 
 class $AssetsSvgsGen {
@@ -77,6 +101,7 @@ class Assets {
 
   static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsLangGen lang = $AssetsLangGen();
   static const $AssetsSvgsGen svgs = $AssetsSvgsGen();
 }
 

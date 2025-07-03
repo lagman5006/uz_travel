@@ -33,7 +33,7 @@ class _SplashPageState extends State<SplashPage> {
       backgroundColor: Color(0xff0D6EFD),
       body: Center(
         child: Text(
-          "UzStrip",
+          "UzTravel",
           style: TextStyle(
             fontSize: 50.sp,
             color: Colors.white,

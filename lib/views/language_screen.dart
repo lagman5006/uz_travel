@@ -25,11 +25,11 @@ class _LanguageSelectScreenState extends State<LanguageSelectScreen> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              languageTile('UZ', Assets.images.pageImage1.path),
+              languageTile('UZ', Assets.images.uzb.path),
               SizedBox(width: 15.w),
-              languageTile('RU', Assets.images.pageImage2.path),
+              languageTile('RU', Assets.images.rus.path),
               SizedBox(width: 15.w),
-              languageTile('EN', Assets.images.pageImage3.path),
+              languageTile('EN', Assets.images.en.path),
             ],
           ),
         ),

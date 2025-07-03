@@ -49,39 +49,6 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
             ),
-
-            actions: [
-              SizedBox(
-                width: 30.w,
-                height: 30.h,
-                child: SwitchListTile(
-                  value: uzTravelProvider.isDarkMode,
-                  onChanged: (value) {
-                    uzTravelProvider.toggleTheme(value);
-                  },
-                ),
-              ),
-              PopupMenuButton<Locale>(
-                icon: const Icon(Icons.language, color: Colors.black),
-                onSelected: (Locale locale) {
-                  context.setLocale(locale);
-                },
-                itemBuilder: (BuildContext context) => [
-                  const PopupMenuItem(
-                    value: Locale('en'),
-                    child: Text('English'),
-                  ),
-                  const PopupMenuItem(
-                    value: Locale('ru'),
-                    child: Text('Русский'),
-                  ),
-                  const PopupMenuItem(
-                    value: Locale('uz'),
-                    child: Text("O'zbekcha"),
-                  ),
-                ],
-              ),
-            ],
           ),
 
           body: SafeArea(
@@ -143,6 +110,7 @@ class _SignUpState extends State<SignUp> {
                         keyboardType: TextInputType.name,
                         decoration: InputDecoration(
                           hintText: 'last_name'.tr(),
+                          hintStyle: Theme.of(context).textTheme.bodyLarge,
                           filled: true,
                           fillColor: const Color(0xFFF7F7F9),
                           border: OutlineInputBorder(
@@ -166,6 +134,7 @@ class _SignUpState extends State<SignUp> {
                         keyboardType: TextInputType.emailAddress,
                         decoration: InputDecoration(
                           hintText: 'email'.tr(),
+                          hintStyle: Theme.of(context).textTheme.bodyLarge,
                           filled: true,
                           fillColor: const Color(0xFFF7F7F9),
                           border: OutlineInputBorder(
@@ -189,6 +158,7 @@ class _SignUpState extends State<SignUp> {
                         obscureText: obscureText,
                         decoration: InputDecoration(
                           hintText: 'password'.tr(),
+                          hintStyle: Theme.of(context).textTheme.bodyLarge,
                           filled: true,
                           fillColor: const Color(0xFFF7F7F9),
                           border: OutlineInputBorder(
