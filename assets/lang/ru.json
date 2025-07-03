@@ -1,0 +1,25 @@
+{
+  "sign_up_now": "Зарегистрируйтесь сейчас",
+  "please_fill_details": "Пожалуйста, заполните данные и создайте аккаунт",
+  "first_name": "Имя",
+  "first_name_required": "Имя обязательно",
+  "first_name_invalid": "Введите действительное имя",
+  "last_name": "Фамилия",
+  "last_name_required": "Фамилия обязательна",
+  "last_name_invalid": "Введите действительную фамилию",
+  "email": "Электронная почта",
+  "email_required": "Требуется электронная почта",
+  "email_invalid": "Введите правильный email",
+  "password": "Пароль",
+  "password_hint": "Пароль должен содержать 8 символов",
+  "sign_up": "Зарегистрироваться",
+  "already_have_account": "Уже есть аккаунт ",
+  "sign_in": "Войти",
+  "or_connect": "Или подключитесь",
+
+  "sign_in_now": "Войдите сейчас",
+  "please_sign_in": "Пожалуйста, войдите, чтобы продолжить",
+  "forget_password": "Забыли пароль",
+  "dont_have_account": "Нет аккаунта? ",
+  "sign_up_action": "Зарегистрируйтесь"
+}

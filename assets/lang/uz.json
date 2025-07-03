@@ -1,0 +1,25 @@
+{
+  "sign_up_now": "Ro'yxatdan o'ting",
+  "please_fill_details": "Iltimos, ma'lumotlarni to‘ldiring va hisob yarating",
+  "first_name": "Ism",
+  "first_name_required": "Ism kiritilishi shart",
+  "first_name_invalid": "To‘g‘ri ism kiriting",
+  "last_name": "Familiya",
+  "last_name_required": "Familiya kiritilishi shart",
+  "last_name_invalid": "To‘g‘ri familiya kiriting",
+  "email": "Elektron pochta",
+  "email_required": "Email kiritilishi shart",
+  "email_invalid": "To‘g‘ri email kiriting",
+  "password": "Parol",
+  "password_hint": "Parol kamida 8 ta belgidan iborat bo‘lishi kerak",
+  "sign_up": "Ro'yxatdan o'tish",
+  "already_have_account": "Allaqachon hisobingiz bormi ",
+  "sign_in": "Kirish",
+  "or_connect": "Yoki bog'laning",
+
+  "sign_in_now": "Hozir kirish",
+  "please_sign_in": "Iltimos, ilovaga kirish uchun tizimga kiring",
+  "forget_password": "Parolni unutdingizmi",
+  "dont_have_account": "Hisobingiz yo'qmi? ",
+  "sign_up_action": "Ro‘yxatdan o‘tish"
+}
