@@ -27,7 +27,7 @@ class AuthService {
       rethrow;
     }
   }
-
+  // google bilan sigin qilish metodi
   Future<User?> signInWithGoogle() async {
     try {
       await signIn.initialize(
@@ -49,4 +49,21 @@ class AuthService {
       rethrow;
     }
   }
+
+
+
+  // parolni tiklash metodi
+
+
+  Future<void> sendPasswordResetEmail(String email) async {
+  try {
+    await _auth.sendPasswordResetEmail(email: email.trim());
+    print("Reset email sent to $email");
+  } catch (e) {
+    print("Password reset error: $e");
+    rethrow;
+  }
+}
+
+
 }
