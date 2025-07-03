@@ -13,8 +13,8 @@ class UzTravelProvider extends ChangeNotifier {
     Assets.images.pageImage3.path,
   ];
 
-  void updateIndex(int index) {
-    currentIndex = index;
+  void updateIndex(int indexcha) {
+    currentIndex = indexcha;
     notifyListeners();
   }
 
