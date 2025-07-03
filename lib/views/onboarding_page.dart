@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:uz_travel/gen/fonts.gen.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
+import 'package:uz_travel/views/login/sign_up.dart';
 
 class OnboardingPage extends StatelessWidget {
   final PageController _pageController = PageController();
@@ -82,19 +83,24 @@ class OnboardingPage extends StatelessWidget {
                         Positioned(
                           top: 16.h,
                           right: 24.w,
-                          child: Text(
-                            "Skip",
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              shadows: [
-                                Shadow(
-                                  color: Colors.black26,
-                                  offset: Offset(1, 1),
-                                  blurRadius: 2,
-                                ),
-                              ],
+                          child: GestureDetector(
+                            onTap: () {
+                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignUp()));
+                            },
+                            child: Text(
+                              "Skip",
+                              style: TextStyle(
+                                fontSize: 14.sp,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                shadows: [
+                                  Shadow(
+                                    color: Colors.black26,
+                                    offset: Offset(1, 1),
+                                    blurRadius: 2,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
