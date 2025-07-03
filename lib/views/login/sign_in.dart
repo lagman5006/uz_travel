@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:uz_travel/gen/assets.gen.dart';
+import 'package:uz_travel/server/google_auth_service.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
 import 'package:uz_travel/views/home_page.dart';
 import 'package:uz_travel/views/login/sign_up.dart';
@@ -16,6 +17,7 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  final AuthService _authService = AuthService();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -26,6 +28,25 @@ class _SignInState extends State<SignIn> {
 
 
   bool obscureText = true;
+
+  void _signInWithGoogle() async {
+    try {
+      final user = await _authService.signInWithGoogle();
+      if (user != null) {
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text("Signed in with Google")));
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const HomePage()),
+        );
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Google Sign-In failed: ${e.toString()}")),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -198,7 +219,14 @@ class _SignInState extends State<SignIn> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Assets.svgs.google.svg(width: 30.w, height: 30.h),
+                          GestureDetector(
+                            onTap: _signInWithGoogle,
+                            child: Assets.svgs.google.svg(
+                              width: 30.w,
+                              height: 30.h,
+                            ),
+                          ),
+
                           SizedBox(width: 10.w),
                           Assets.svgs.facebook.svg(width: 30.w, height: 30.h),
                           SizedBox(width: 10.w),
