@@ -35,15 +35,29 @@ class UzTravelService {
     );
     return credential.user;
   }
-}
+
 
 // get products
-Future<List<Map<String,dynamic>>> fetchPlaces()async{
-  final snapshot = await FirebaseFirestore.instance.collection("places").get();
-  final places = snapshot.docs.map((doc) => {
-    ...doc.data(),
-    "id": doc.id,
-  }).toList();
+  Future<List<Map<String, dynamic>>> fetchPlaces() async {
+    final snapshot = await FirebaseFirestore.instance
+        .collection("places")
+        .get();
+    final places = snapshot.docs.map((doc) =>
+    {
+      ...doc.data(),
+      "id": doc.id,
+    }).toList();
 
-  return places;
+    return places;
+  }
+
+  Future<void> addFavourite(
+      {required String userId, required String itemId}) async {
+    await FirebaseFirestore.instance.collection("favourites").add({
+
+      "userId": userId,
+      "itemId": itemId,
+      "timestamp": FieldValue.serverTimestamp(),
+    });
+  }
 }

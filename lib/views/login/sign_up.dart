@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:uz_travel/gen/assets.gen.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
-import 'package:uz_travel/views/home_page.dart';
+import 'package:uz_travel/views/home_page/home_page.dart';
 import 'package:uz_travel/views/login/sign_in.dart';
 
 class SignUp extends StatefulWidget {

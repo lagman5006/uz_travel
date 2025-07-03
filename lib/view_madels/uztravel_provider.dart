@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uz_travel/gen/assets.gen.dart';
@@ -13,8 +15,13 @@ class UzTravelProvider extends ChangeNotifier {
     Assets.images.pageImage3.path,
   ];
 
-  void updateIndex(int indexku) {
-    currentIndex = indexku;
+
+
+
+
+
+  void updateIndex(int index) {
+    currentIndex = index;
     notifyListeners();
   }
 
@@ -31,6 +38,8 @@ class UzTravelProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  
+  
   //sign Up
   Future<User?> signUp(
     String email,
@@ -63,4 +72,24 @@ class UzTravelProvider extends ChangeNotifier {
     notifyListeners();
     return user;
   }
-}
+
+  Future<void> addFavourite(String itemId)async{
+    isLoading = true;
+    notifyListeners();
+    String? userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId != null){
+      await uzTravelService.addFavourite(userId: userId, itemId: itemId);
+      isLoading = false;
+      notifyListeners();
+    }
+  }
+
+  List<Map<String,dynamic>> places= [];
+  Future<void> fetchPlaces() async {
+    isLoading = true;
+    notifyListeners();
+      places = await uzTravelService.fetchPlaces();
+      isLoading = false;
+      notifyListeners();
+    }
+  }

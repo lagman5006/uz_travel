@@ -6,7 +6,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:uz_travel/gen/assets.gen.dart';
 import 'package:uz_travel/server/google_auth_service.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
-import 'package:uz_travel/views/home_page.dart';
+import 'package:uz_travel/views/home_page/home_page.dart';
 import 'package:uz_travel/views/login/sign_up.dart';
 import 'package:uz_travel/views/password_screen.dart';
 
@@ -38,7 +38,7 @@ class _SignInState extends State<SignIn> {
         ).showSnackBar(const SnackBar(content: Text("Signed in with Google")));
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => const HomePage()),
+          MaterialPageRoute(builder: (context) =>  HomePage()),
         );
       }
     } catch (e) {
@@ -73,7 +73,7 @@ class _SignInState extends State<SignIn> {
                         ),
                         child: Container(
                           decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.1),
+                            color: Colors.grey.withValues(alpha: 0.1),
                             borderRadius: BorderRadius.circular(30),
                           ),
                           child: const Padding(
@@ -183,7 +183,7 @@ class _SignInState extends State<SignIn> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const HomePage(),
+                              builder: (context) =>  HomePage(),
                             ),
                           );
                         },
@@ -197,7 +197,7 @@ class _SignInState extends State<SignIn> {
                         child: RichText(
                           text: TextSpan(
                             text: 'dont_have_account'.tr(),
-                            style: const TextStyle(color: Colors.grey),
+                            style:  TextStyle(color: Colors.grey),
                             children: [
                               TextSpan(
                                 text: 'sign_up_action'.tr(),

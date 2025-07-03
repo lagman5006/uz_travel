@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 import 'package:uz_travel/gen/fonts.gen.dart';
-import 'package:uz_travel/views/language_screen.dart';
+import 'package:uz_travel/view_madels/uztravel_provider.dart';
+import 'package:uz_travel/views/language_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -14,16 +16,20 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    final provider = Provider.of<UzTravelProvider>(context, listen: false);
+    await provider.fetchPlaces(); // Fetch places
+    if (mounted) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) {
-            return LanguageSelectScreen();
-          },
+          builder: (context) => LanguageSelectScreen(),
         ),
       );
-    });
+    }
   }
 
   @override

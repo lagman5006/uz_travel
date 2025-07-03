@@ -7,7 +7,8 @@ import 'package:easy_localization/easy_localization.dart';
 
 import 'package:uz_travel/madels/firebase_options.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
-import 'package:uz_travel/views/home_page.dart';
+import 'package:uz_travel/views/home_page/home_page.dart';
+import 'package:uz_travel/views/home_page/mainscaffold.dart';
 import 'package:uz_travel/views/splash_page.dart';
 import 'package:uz_travel/widgets/apptheme.dart';
 
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => UzTravelProvider(),
+      create: (context) => UzTravelProvider()..fetchPlaces(),
       builder: (context, child) {
         return ScreenUtilInit(
           designSize: const Size(360, 690),
@@ -54,9 +55,9 @@ class MyApp extends StatelessWidget {
               stream: FirebaseAuth.instance.authStateChanges(),
               builder: (context, snapshot) {
                 if (snapshot.data == null) {
-                  return const SplashPage();
+                  return  SplashPage();
                 } else {
-                  return const HomePage();
+                  return  MainScaffold();
                 }
               },
             ),
