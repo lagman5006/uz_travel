@@ -7,6 +7,7 @@ import 'package:easy_localization/easy_localization.dart';
 
 import 'package:uz_travel/madels/firebase_options.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
+import 'package:uz_travel/views/favorites_page.dart';
 import 'package:uz_travel/views/home_page/home_page.dart';
 import 'package:uz_travel/views/home_page/mainscaffold.dart';
 import 'package:uz_travel/views/splash_page.dart';
@@ -57,7 +58,7 @@ class MyApp extends StatelessWidget {
                 if (snapshot.data == null) {
                   return  SplashPage();
                 } else {
-                  return  MainScaffold();
+                  return  FavoritesPage();
                 }
               },
             ),

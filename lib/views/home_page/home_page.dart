@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
+import 'package:uz_travel/views/home_page/details.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -88,41 +89,51 @@ class HomePage extends StatelessWidget {
                             itemCount: uzTravelProvider.places.length,
                             itemBuilder: (context, index) {
                               final place = uzTravelProvider.places[index];
-                              return Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: 180.w,
-                                      height: 220.h,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(12),
-                                        image: DecorationImage(
-                                          image: NetworkImage(
-                                            place["imagePath"] ?? '',
+                              return GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailsPage(place: place)));
+                                },
+                                child: Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: 180.w,
+                                        height: 220.h,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(12),
+                                          image: DecorationImage(
+                                            image: NetworkImage(
+                                              place["imagePath"] ?? '',
+                                            ),
+                                            fit: BoxFit.cover,
                                           ),
-                                          fit: BoxFit.cover,
                                         ),
                                       ),
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text(place["name"] ?? 'No Name'),
-                                        SizedBox(width: 50.w),
-                                        Icon(Icons.star, size: 20),
-                                        Text(place["rate"] ?? 'N/A'),
-                                      ],
-                                    ),
-                                    SizedBox(height: 10.h),
-                                    Row(
-                                      spacing: 10,
-                                      children: [
-                                        Icon(Icons.location_on_outlined),
-                                        Text(place["location"]),
-                                      ],
-                                    ),
-                                  ],
+                                      Row(
+                                        children: [
+                                          Text(
+                                            place["name"] ?? 'No Name',
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          SizedBox(width: 50.w),
+                                          Icon(Icons.star, size: 20),
+                                          Text(place["rate"] ?? 'N/A'),
+                                        ],
+                                      ),
+                                      SizedBox(height: 10.h),
+                                      Row(
+                                        spacing: 10,
+                                        children: [
+                                          Icon(Icons.location_on_outlined),
+                                          Text(place["location"]),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               );
                             },

@@ -21,7 +21,7 @@ class _SplashPageState extends State<SplashPage> {
 
   Future<void> _loadData() async {
     final provider = Provider.of<UzTravelProvider>(context, listen: false);
-    await provider.fetchPlaces(); // Fetch places
+    await provider.fetchPlaces();
     if (mounted) {
       Navigator.pushReplacement(
         context,
