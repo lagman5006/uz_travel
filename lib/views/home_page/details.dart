@@ -45,6 +45,7 @@ class DetailsPage extends StatelessWidget {
             top: 32.h,
             left: 16.w,
             child: CircleAvatar(
+              radius: 20,
               backgroundColor: Colors.grey.withValues(alpha: 0.5),
               child: IconButton(
                 icon:  Icon(Icons.arrow_back_ios, color: Colors.white),

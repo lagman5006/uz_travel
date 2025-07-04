@@ -58,7 +58,7 @@ class MyApp extends StatelessWidget {
                 if (snapshot.data == null) {
                   return  SplashPage();
                 } else {
-                  return  FavoritesPage();
+                  return  MainScaffold();
                 }
               },
             ),
