@@ -28,5 +28,10 @@
   "people_dont_take_trips_trips_take_people": "Люди не совершают поездки, поездки совершают людей",
   "check_your_email": "Проверьте вашу электронную почту",
   "we_have_sent_password_recovery_instruction": "Мы отправили инструкцию по восстановлению пароля на вашу электронную почту",
-  "reset_password": "Сбросить пароль"
+  "reset_password": "Сбросить пароль",
+  "profile": "Профиль",
+  "bookmarked": "Закладки",
+  "previous_trips": "Предыдущие поездки",
+  "settings": "Настройки",
+  "version": "Версия"
 }

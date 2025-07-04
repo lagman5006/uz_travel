@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uz_travel/server/google_auth_service.dart';
 import 'package:uz_travel/views/login/sign_in.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:uz_travel/views/profile_edit_screen.dart';
 
 class PasswordScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
@@ -143,7 +144,8 @@ class PasswordScreen extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 CupertinoPageRoute(
-                                  builder: (context) => SignIn(),
+                                  // bu yerda signin screeni boladi
+                                  builder: (context) => ProfileScreen(),
                                 ),
                               );
                             },
