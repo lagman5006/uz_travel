@@ -86,8 +86,6 @@ class UzTravelProvider extends ChangeNotifier {
 
   List<Map<String,dynamic>> places= [];
   Future<void> fetchPlaces() async {
-    isLoading = true;
-    notifyListeners();
       places = await uzTravelService.fetchPlaces();
       isLoading = false;
       notifyListeners();
