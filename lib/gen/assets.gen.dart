@@ -80,6 +80,9 @@ class $AssetsLangGen {
 class $AssetsSvgsGen {
   const $AssetsSvgsGen();
 
+  /// File path: assets/svgs/edit.svg
+  SvgGenImage get edit => const SvgGenImage('assets/svgs/edit.svg');
+
   /// File path: assets/svgs/facebook.svg
   SvgGenImage get facebook => const SvgGenImage('assets/svgs/facebook.svg');
 
@@ -89,11 +92,33 @@ class $AssetsSvgsGen {
   /// File path: assets/svgs/instagram.svg
   SvgGenImage get instagram => const SvgGenImage('assets/svgs/instagram.svg');
 
+  /// File path: assets/svgs/man.svg
+  SvgGenImage get man => const SvgGenImage('assets/svgs/man.svg');
+
+  /// File path: assets/svgs/settings.svg
+  SvgGenImage get settings => const SvgGenImage('assets/svgs/settings.svg');
+
+  /// File path: assets/svgs/trip.svg
+  SvgGenImage get trip => const SvgGenImage('assets/svgs/trip.svg');
+
   /// File path: assets/svgs/twitter.svg
   SvgGenImage get twitter => const SvgGenImage('assets/svgs/twitter.svg');
 
+  /// File path: assets/svgs/version.svg
+  SvgGenImage get version => const SvgGenImage('assets/svgs/version.svg');
+
   /// List of all assets
-  List<SvgGenImage> get values => [facebook, google, instagram, twitter];
+  List<SvgGenImage> get values => [
+    edit,
+    facebook,
+    google,
+    instagram,
+    man,
+    settings,
+    trip,
+    twitter,
+    version,
+  ];
 }
 
 class Assets {

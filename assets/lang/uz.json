@@ -28,5 +28,10 @@
   "people_dont_take_trips_trips_take_people": "Odamlar sayohat qilmaydi, sayohatlar odamlarni o'zgartiradi",
   "check_your_email": "Elektron pochtangizni tekshiring",
   "we_have_sent_password_recovery_instruction": "Parolni tiklash bo'yicha ko'rsatmalarni elektron pochtangizga yubordik",
-  "reset_password": "Parolni tiklash"
+  "reset_password": "Parolni tiklash",
+  "profile": "Profil",
+  "bookmarked": "Xatcho'plar",
+  "previous_trips": "Oldingi sayohatlar",
+  "settings": "Sozlamalar",
+  "version": "Versiya"
 }
