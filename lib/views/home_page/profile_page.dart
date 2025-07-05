@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:uz_travel/gen/assets.gen.dart';
+import 'package:uz_travel/views/favorites_page.dart';
+import 'package:uz_travel/views/home_page/home_page.dart';
 import 'package:uz_travel/views/login/sign_in.dart';
 
 class ProfilePage extends StatelessWidget {
@@ -19,13 +21,12 @@ class ProfilePage extends StatelessWidget {
           onTap: () {
             Navigator.pop(
               context,
-              // bu yerda SignIn ga otadigan qildim keyinchalik togirlanadi
-              MaterialPageRoute(builder: (context) => SignIn()),
+              MaterialPageRoute(builder: (context) => HomePage()),
             );
           },
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.grey.withOpacity(0.1),
+              color: Colors.grey.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(30.w),
             ),
             child: Padding(
@@ -116,7 +117,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   Divider(
                     thickness: 0.5,
-                    color: Colors.grey.withOpacity(0.3),
+                    color: Colors.grey.withValues(alpha: 0.3),
                     indent: 16,
                     endIndent: 16,
                   ),
@@ -125,13 +126,20 @@ class ProfilePage extends StatelessWidget {
                     title: Text('bookmarked'.tr()),
                     trailing: Icon(CupertinoIcons.forward),
                     onTap: () {
-                      // funksiya yozsa boladi bosganda qayerga otishi
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return FavoritesPage();
+                          },
+                        ),
+                      );
                     },
                   ),
                   SizedBox(height: 10.h),
                   Divider(
                     thickness: 0.4,
-                    color: Colors.grey.withOpacity(0.3),
+                    color: Colors.grey.withValues(alpha: 0.3),
                     indent: 16,
                     endIndent: 16,
                   ),
@@ -146,7 +154,7 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(height: 10.h),
                   Divider(
                     thickness: 0.5,
-                    color: Colors.grey.withOpacity(0.3),
+                    color: Colors.grey.withValues(alpha: 0.3),
                     indent: 16,
                     endIndent: 16,
                   ),

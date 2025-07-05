@@ -90,4 +90,23 @@ class UzTravelProvider extends ChangeNotifier {
       isLoading = false;
       notifyListeners();
     }
+
+  List<Map<String, dynamic>> favouritePlaces = [];
+
+  Future<void> fetchFavouritePlaces() async {
+    isLoading = true;
+    try {
+      String? userId = FirebaseAuth.instance.currentUser?.uid;
+      if (userId != null) {
+        favouritePlaces = await uzTravelService.fetchFavouritePlaces(userId);
+      } else {
+        favouritePlaces = [];
+      }
+    } catch (e) {
+      favouritePlaces = [];
+    } finally {
+      isLoading = false;
+      notifyListeners();
+    }
+  }
   }

@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 class UzTravelService {
   FirebaseAuth firebaseAuth = FirebaseAuth.instance;
 
-
   // sign up
   Future<User> signUp({
     required String email,
@@ -36,28 +35,50 @@ class UzTravelService {
     return credential.user;
   }
 
-
-// get products
+  // get products
   Future<List<Map<String, dynamic>>> fetchPlaces() async {
     final snapshot = await FirebaseFirestore.instance
         .collection("places")
         .get();
-    final places = snapshot.docs.map((doc) =>
-    {
-      ...doc.data(),
-      "id": doc.id,
-    }).toList();
+    final places = snapshot.docs
+        .map((doc) => {...doc.data(), "id": doc.id})
+        .toList();
 
     return places;
   }
 
-  Future<void> addFavourite(
-      {required String userId, required String itemId}) async {
+  Future<void> addFavourite({
+    required String userId,
+    required String itemId,
+  }) async {
     await FirebaseFirestore.instance.collection("favourites").add({
-
       "userId": userId,
       "itemId": itemId,
       "timestamp": FieldValue.serverTimestamp(),
     });
+  }
+
+  Future<List<Map<String, dynamic>>> fetchFavouritePlaces(String userId) async {
+    final favouriteSnapshot = await FirebaseFirestore.instance
+        .collection("favourites")
+        .where("userId", isEqualTo: userId)
+        .get();
+
+    final favouriteItemIds = favouriteSnapshot.docs
+        .map((doc) => doc.data()["itemId"] as String)
+        .toList();
+
+    if (favouriteItemIds.isEmpty) return [];
+
+    final placesSnapshot = await FirebaseFirestore.instance
+        .collection("places")
+        .where(FieldPath.documentId, whereIn: favouriteItemIds)
+        .get();
+
+    final favouritePlaces = placesSnapshot.docs
+        .map((doc) => {...doc.data(), "id": doc.id})
+        .toList();
+
+    return favouritePlaces;
   }
 }
