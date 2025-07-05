@@ -122,8 +122,8 @@ class ProfilePage extends StatelessWidget {
                     endIndent: 16,
                   ),
                   CupertinoListTile(
-                    leading: Icon(CupertinoIcons.bookmark),
-                    title: Text('bookmarked'.tr()),
+                    leading: Icon(Icons.favorite_border),
+                    title: Text('favorites'.tr()),
                     trailing: Icon(CupertinoIcons.forward),
                     onTap: () {
                       Navigator.push(
