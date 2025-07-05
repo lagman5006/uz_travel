@@ -33,5 +33,13 @@
   "Favourites": "sevimlilar",
   "previous_trips": "Oldingi sayohatlar",
   "settings": "Sozlamalar",
-  "version": "Versiya"
+  "version": "Versiya",
+  "cities": "Shaharlar",
+  "click_to_search": "Shaharni topish uchun qidiruv tugmasini bosing",
+  "search_hint": "Shahar nomini kiriting",
+  "enter_city_name": "Iltimos, shahar nomini kiriting",
+  "no_city_found": "Mos shahar topilmadi",
+  "location": "Manzil",
+  "price": "Narxi",
+  "rating": "Reyting"
 }

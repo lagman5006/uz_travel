@@ -33,5 +33,13 @@
   "Favourites": "Favourites",
   "previous_trips": "Previous Trips",
   "settings": "Settings",
-  "version": "Version"
+  "version": "Version",
+  "cities": "Cities",
+  "click_to_search": "Tap the search icon to find a city",
+  "search_hint": "Enter city name",
+  "enter_city_name": "Please enter a city name",
+  "no_city_found": "No matching city found",
+  "location": "Location",
+  "price": "Price",
+  "rating": "Rating"
 }
