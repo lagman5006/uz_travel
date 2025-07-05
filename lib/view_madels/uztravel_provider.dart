@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uz_travel/gen/assets.gen.dart';
@@ -15,11 +16,6 @@ class UzTravelProvider extends ChangeNotifier {
     Assets.images.pageImage3.path,
   ];
 
-
-
-
-
-
   void updateIndex(int index) {
     currentIndex = index;
     notifyListeners();
@@ -28,18 +24,17 @@ class UzTravelProvider extends ChangeNotifier {
   bool isLoading = false;
 
   ThemeMode _themeMode = ThemeMode.system;
+
   ThemeMode get themeMode => _themeMode;
 
   bool get isDarkMode => _themeMode == ThemeMode.dark;
 
   // switch theme
-  void toggleTheme(bool isOn){
+  void toggleTheme(bool isOn) {
     _themeMode = isOn ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
   }
 
-  
-  
   //sign Up
   Future<User?> signUp(
     String email,
@@ -73,23 +68,24 @@ class UzTravelProvider extends ChangeNotifier {
     return user;
   }
 
-  Future<void> addFavourite(String itemId)async{
+  Future<void> addFavourite(String itemId) async {
     isLoading = true;
     notifyListeners();
     String? userId = FirebaseAuth.instance.currentUser?.uid;
-    if (userId != null){
+    if (userId != null) {
       await uzTravelService.addFavourite(userId: userId, itemId: itemId);
       isLoading = false;
       notifyListeners();
     }
   }
 
-  List<Map<String,dynamic>> places= [];
+  List<Map<String, dynamic>> places = [];
+
   Future<void> fetchPlaces() async {
-      places = await uzTravelService.fetchPlaces();
-      isLoading = false;
-      notifyListeners();
-    }
+    places = await uzTravelService.fetchPlaces();
+    isLoading = false;
+    notifyListeners();
+  }
 
   List<Map<String, dynamic>> favouritePlaces = [];
 
@@ -109,4 +105,31 @@ class UzTravelProvider extends ChangeNotifier {
       notifyListeners();
     }
   }
+
+  // method to add a place
+
+  Future<void> addPlace(Map<String, dynamic> place) async {
+    isLoading = true;
+    await uzTravelService.addPlace(place);
+    await fetchPlaces();
+    isLoading = false;
+    notifyListeners();
   }
+
+  Future<void> updatePlace(String id,Map<String, dynamic>place)async{
+    isLoading = true;
+    await uzTravelService.updatePlace(id, place);
+    await fetchPlaces();
+    isLoading = false;
+    notifyListeners();
+  }
+
+  Future<void> deletePlase(String id)async{
+    isLoading = true;
+    notifyListeners();
+    await uzTravelService.deletePlace(id);
+    await fetchPlaces();
+    isLoading = false;
+    notifyListeners();
+  }
+}

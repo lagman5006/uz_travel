@@ -81,4 +81,32 @@ class UzTravelService {
 
     return favouritePlaces;
   }
+
+  Future<void> addPlace(Map<String, dynamic> place) async {
+    await FirebaseFirestore.instance.collection("places").add({
+      "name": place["name"],
+      "location": place["location"],
+      "imagePath": place["imagePath"], // Corrected
+      "rate": place["rate"],
+      "price": place["price"],
+      "description": place["description"],
+      "timestamp": FieldValue.serverTimestamp(),
+    });
+  }
+  
+  // method to update a place
+  Future<void> updatePlace(String id, Map<String, dynamic> place)async{
+    await FirebaseFirestore.instance.collection("places").doc(id).update({
+      "name": place["name"],
+      "location": place["location"],
+      "imagePath": place["imagePath"],
+      "rate": place["rate"],
+      "price": place["price"],
+      "description": place["description"],
+    });
+  }
+  Future<void> deletePlace(String id)async{
+    await FirebaseFirestore.instance.collection("places").doc(id).delete();
+  }
 }
+

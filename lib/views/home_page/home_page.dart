@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
 import 'package:uz_travel/views/home_page/details.dart';
+import 'package:uz_travel/views/view_all.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -77,7 +78,18 @@ class HomePage extends StatelessWidget {
                     children: [
                       Text("Best Destination"),
                       Spacer(),
-                      TextButton(onPressed: () {}, child: Text("View all")),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  ViewAllPage(places: uzTravelProvider.places),
+                            ),
+                          );
+                        },
+                        child: Text("View all"),
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -91,18 +103,27 @@ class HomePage extends StatelessWidget {
                               final place = uzTravelProvider.places[index];
                               return GestureDetector(
                                 onTap: () {
-                                  Navigator.push(context, MaterialPageRoute(builder: (context)=> DetailsPage(place: place)));
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) =>
+                                          DetailsPage(place: place),
+                                    ),
+                                  );
                                 },
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Container(
                                         width: 180.w,
                                         height: 220.h,
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(12),
+                                          borderRadius: BorderRadius.circular(
+                                            12,
+                                          ),
                                           image: DecorationImage(
                                             image: NetworkImage(
                                               place["imagePath"] ?? '',

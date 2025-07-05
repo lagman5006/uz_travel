@@ -48,7 +48,7 @@ class DetailsPage extends StatelessWidget {
               radius: 20,
               backgroundColor: Colors.grey.withValues(alpha: 0.5),
               child: IconButton(
-                icon:  Icon(Icons.arrow_back_ios, color: Colors.white),
+                icon:  Icon(Icons.arrow_back_ios_sharp, color: Colors.white),
                 onPressed: () {
                   Navigator.pop(context); // Navigate back
                 },

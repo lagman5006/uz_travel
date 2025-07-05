@@ -17,24 +17,6 @@ class ProfilePage extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
-        leading: GestureDetector(
-          onTap: () {
-            Navigator.pop(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );
-          },
-          child: Container(
-            decoration: BoxDecoration(
-              color: Colors.grey.withValues(alpha: 0.1),
-              borderRadius: BorderRadius.circular(30.w),
-            ),
-            child: Padding(
-              padding: EdgeInsets.all(8.w),
-              child: Icon(Icons.keyboard_arrow_left),
-            ),
-          ),
-        ),
         title: Center(
           child: Text(
             "Profile".tr(),
