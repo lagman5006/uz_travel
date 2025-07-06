@@ -154,6 +154,14 @@ class DetailsPage extends StatelessWidget {
                       "Add more details about the place here, such as activities, visiting hours, or other relevant information.",
                       style: TextStyle(fontSize: 14.sp, color: Colors.grey[600]),
                     ),
+                    SizedBox(height: 15.h),
+                     ElevatedButton(
+                         style: ElevatedButton.styleFrom(
+                           backgroundColor: Colors.blue
+                         ),
+                         onPressed: () {
+                       
+                     }, child: Text("Book Now",style: TextStyle(color: Colors.white),))
                   ],
                 ),
               );

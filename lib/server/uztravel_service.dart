@@ -93,9 +93,9 @@ class UzTravelService {
       "timestamp": FieldValue.serverTimestamp(),
     });
   }
-  
+
   // method to update a place
-  Future<void> updatePlace(String id, Map<String, dynamic> place)async{
+  Future<void> updatePlace(String id, Map<String, dynamic> place) async {
     await FirebaseFirestore.instance.collection("places").doc(id).update({
       "name": place["name"],
       "location": place["location"],
@@ -105,8 +105,27 @@ class UzTravelService {
       "description": place["description"],
     });
   }
-  Future<void> deletePlace(String id)async{
+
+  Future<void> deletePlace(String id) async {
     await FirebaseFirestore.instance.collection("places").doc(id).delete();
   }
-}
 
+  // method to fetch places by data
+  Future<List<Map<String, dynamic>>> fetchPlacesByDate(DateTime date) async {
+    final startOfDay = DateTime(date.year, date.month, date.day);
+    final endOfDay = startOfDay
+        .add(const Duration(days: 1))
+        .subtract(Duration(seconds: 1));
+
+    final snapshot = await FirebaseFirestore.instance
+        .collection("places")
+        .where("timestamp", isGreaterThanOrEqualTo: startOfDay)
+        .where("timestamp", isGreaterThanOrEqualTo: endOfDay)
+        .get();
+
+    final places = snapshot.docs
+        .map((doc) => {...doc.data(), "id": doc.id})
+        .toList();
+    return places;
+  }
+}

@@ -106,6 +106,16 @@ class UzTravelProvider extends ChangeNotifier {
     }
   }
 
+  // By time
+  List<Map<String, dynamic>> scheduledPlaces = [];
+
+  Future<void> fetchPlacesByDate(DateTime date) async {
+    isLoading = true;
+    scheduledPlaces = await uzTravelService.fetchPlacesByDate(date);
+    isLoading = false;
+    notifyListeners();
+  }
+
   // method to add a place
 
   Future<void> addPlace(Map<String, dynamic> place) async {
@@ -116,7 +126,7 @@ class UzTravelProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> updatePlace(String id,Map<String, dynamic>place)async{
+  Future<void> updatePlace(String id, Map<String, dynamic> place) async {
     isLoading = true;
     await uzTravelService.updatePlace(id, place);
     await fetchPlaces();
@@ -124,7 +134,7 @@ class UzTravelProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> deletePlase(String id)async{
+  Future<void> deletePlase(String id) async {
     isLoading = true;
     notifyListeners();
     await uzTravelService.deletePlace(id);

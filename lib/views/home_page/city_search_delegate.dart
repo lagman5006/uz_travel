@@ -2,7 +2,7 @@ import "package:cloud_firestore/cloud_firestore.dart";
 import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 import "package:easy_localization/easy_localization.dart";
-import "place_details_page.dart";
+import "package:uz_travel/views/home_page/details.dart";
 
 class CitySearchDelegate extends SearchDelegate {
   @override
@@ -44,7 +44,9 @@ class CitySearchDelegate extends SearchDelegate {
   Widget _buildCityList(String searchText) {
     if (searchText.isEmpty) {
       return Center(
-        child: Text("enter_city_name".tr()), // qidiruv matni bo‘sh bo‘lsa ogohlantirish
+        child: Text(
+          "enter_city_name".tr(),
+        ), // qidiruv matni bo‘sh bo‘lsa ogohlantirish
       );
     }
 
@@ -72,27 +74,49 @@ class CitySearchDelegate extends SearchDelegate {
         final docs = snapshot.data!.docs; // topilgan hujjatlar
 
         // Topilgan shaharlarni ro‘yxatda ko‘rsatish
-        return ListView.builder(
+        return GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 12.w,
+            mainAxisExtent: 200.h,
+            childAspectRatio: 0.75,
+          ),
           itemCount: docs.length,
           itemBuilder: (context, index) {
             final place = docs[index];
-
-            return ListTile(
-              title: Text(place["name"]), // shahar nomi
-              subtitle: Text(place["location"]), // manzili
-              contentPadding: EdgeInsets.symmetric(
-                horizontal: 16.w,
-                vertical: 8.h,
+            final imageUrl = place["imagePath"];
+            final description = place["description"];
+            return Card(
+              elevation: 2,
+              child: InkWell(
+                onTap: () {
+                  close(context, null);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DetailsPage(
+                        place: place.data() as Map<String, dynamic>,
+                      ),
+                    ),
+                  );
+                },
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(10),
+                      child: Image.network(place["imagePath"]),
+                    ),
+                    Text(place["name"]),
+                    Row(
+                      children: [
+                        Icon(Icons.location_on_outlined),
+                        Text(place["location"]),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-              onTap: () {
-                close(context, null); // qidiruvni yopadi
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => PlaceDetailsPage(placeDoc: place), // tafsilotlar sahifasi
-                  ),
-                );
-              },
             );
           },
         );
