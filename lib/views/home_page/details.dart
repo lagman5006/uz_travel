@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +22,6 @@ class DetailsPage extends StatelessWidget {
               image: DecorationImage(
                 image: NetworkImage(place["imagePath"] ?? ''),
                 fit: BoxFit.cover,
-
               ),
             ),
           ),
@@ -32,7 +32,7 @@ class DetailsPage extends StatelessWidget {
             right: 0,
             child: Center(
               child: Text(
-                "Details",
+                "Details".tr(),
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 20.sp,
@@ -48,7 +48,7 @@ class DetailsPage extends StatelessWidget {
               radius: 20,
               backgroundColor: Colors.grey.withValues(alpha: 0.5),
               child: IconButton(
-                icon:  Icon(Icons.arrow_back_ios_sharp, color: Colors.white),
+                icon: Icon(Icons.arrow_back_ios_sharp, color: Colors.white),
                 onPressed: () {
                   Navigator.pop(context); // Navigate back
                 },
@@ -63,10 +63,13 @@ class DetailsPage extends StatelessWidget {
               child: IconButton(
                 icon: const Icon(Icons.favorite_border, color: Colors.white),
                 onPressed: () {
-                  final provider = Provider.of<UzTravelProvider>(context, listen: false);
+                  final provider = Provider.of<UzTravelProvider>(
+                    context,
+                    listen: false,
+                  );
                   provider.addFavourite(place["id"] ?? '');
                   ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Added to Favorites')),
+                    SnackBar(content: Text('Added to Favorites'.tr())),
                   );
                 },
               ),
@@ -81,8 +84,10 @@ class DetailsPage extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(24.r)),
-                  boxShadow:  [
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(24.r),
+                  ),
+                  boxShadow: [
                     BoxShadow(
                       color: Colors.black12,
                       blurRadius: 10,
@@ -107,8 +112,11 @@ class DetailsPage extends StatelessWidget {
                     ),
                     // Place Name
                     Text(
-                      place["name"] ?? "No Name",
-                      style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+                      place["name"] ?? "No Name".tr(),
+                      style: TextStyle(
+                        fontSize: 24.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     SizedBox(height: 10.h),
                     // Location
@@ -118,7 +126,7 @@ class DetailsPage extends StatelessWidget {
                         SizedBox(width: 8.w),
                         Expanded(
                           child: Text(
-                            place["location"] ?? "Unknown Location",
+                            place["location"] ?? "Unknown Location".tr(),
                             style: TextStyle(fontSize: 16.sp),
                           ),
                         ),
@@ -128,40 +136,57 @@ class DetailsPage extends StatelessWidget {
                     // Rating
                     Row(
                       children: [
-                        Icon(Icons.star, size: 20.sp, color: Colors.yellow[700]),
+                        Icon(
+                          Icons.star,
+                          size: 20.sp,
+                          color: Colors.yellow[700],
+                        ),
                         SizedBox(width: 8.w),
                         Text(
                           place["rate"] ?? "N/A",
                           style: TextStyle(fontSize: 16.sp),
                         ),
-                        SizedBox(width: 10.w,),
-                        Text("\$${place["price"]}")
+                        SizedBox(width: 10.w),
+                        Text("\$${place["price"]}"),
                       ],
                     ),
                     SizedBox(height: 10.h),
                     // Description
                     Text(
-                      place["description"] ?? "No description available.",
-                      style: TextStyle(fontSize: 16.sp, color: Colors.grey[600]),
+                      place["description"] ?? "No description available.".tr(),
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                        color: Colors.grey[600],
+                      ),
                     ),
                     SizedBox(height: 20.h),
                     Text(
-                      "Additional Info",
-                      style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+                      "Additional Info".tr(),
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     SizedBox(height: 10.h),
                     Text(
-                      "Add more details about the place here, such as activities, visiting hours, or other relevant information.",
-                      style: TextStyle(fontSize: 14.sp, color: Colors.grey[600]),
+                      "Add more details about the place here, such as activities, visiting hours, or other relevant information."
+                          .tr(),
+                      style: TextStyle(
+                        fontSize: 14.sp,
+                        color: Colors.grey[600],
+                      ),
                     ),
                     SizedBox(height: 15.h),
-                     ElevatedButton(
-                         style: ElevatedButton.styleFrom(
-                           backgroundColor: Colors.blue
-                         ),
-                         onPressed: () {
-                       
-                     }, child: Text("Book Now",style: TextStyle(color: Colors.white),))
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                      ),
+                      onPressed: () {},
+                      child: Text(
+                        "Book Now".tr(),
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
                   ],
                 ),
               );

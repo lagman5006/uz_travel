@@ -1,27 +1,27 @@
-import 'package:provider/provider.dart';
-import 'package:flutter/material.dart';
-import 'package:uz_travel/view_madels/uztravel_provider.dart';
-import 'package:uz_travel/views/home_page/profile_page.dart';
-import 'package:uz_travel/views/home_page/search_page.dart';
-
-import 'calendar_page.dart';
-import 'home_page.dart';
-import 'messeges_page.dart';
+import "package:flutter/material.dart";
+import "package:provider/provider.dart";
+import "package:uz_travel/view_madels/uztravel_provider.dart";
+import "package:uz_travel/views/home_page/city_list_page.dart";
+import "package:uz_travel/views/home_page/profile_page.dart";
+import "package:uz_travel/views/home_page/search_page.dart";
+import "calendar_page.dart";
+import "home_page.dart";
 
 class MainScaffold extends StatelessWidget {
-  final List<Widget> _pages = [
-    HomePage(),
-    CalendarPage(),
-    SearchPage(),
-
-    MessegesPage(),
-    ProfilePage(),
-  ];
+  const MainScaffold({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Consumer<UzTravelProvider>(
       builder: (context, uzTravelProvider, child) {
+        final List<Widget> _pages = [
+          HomePage(),
+          CalendarPage(),
+          SearchPage(),
+          CityListPage(),
+          ProfilePage(),
+        ];
+
         return Scaffold(
           body: IndexedStack(
             index: uzTravelProvider.currentIndex,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,7 +28,7 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Icon(Icons.person, color: Colors.red),
-                    Text("Iskandar"),
+                    Text("Iskandar".tr()),
                   ],
                 ),
               ),
@@ -51,14 +52,14 @@ class HomePage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Text("Explore The", style: TextStyle(fontSize: 40)),
+                      Text("Explore The".tr(), style: TextStyle(fontSize: 40)),
                     ],
                   ),
                   Row(
                     children: [
                       RichText(
                         text: TextSpan(
-                          text: "Beautiful ",
+                          text: "Beautiful ".tr(),
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 40,
@@ -66,7 +67,7 @@ class HomePage extends StatelessWidget {
                           ),
                           children: [
                             TextSpan(
-                              text: "world!",
+                              text: "world!".tr(),
                               style: TextStyle(color: Colors.red, fontSize: 40),
                             ),
                           ],
@@ -76,7 +77,7 @@ class HomePage extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Text("Best Destination"),
+                      Text("Best Destination".tr()),
                       Spacer(),
                       TextButton(
                         onPressed: () {
@@ -88,7 +89,7 @@ class HomePage extends StatelessWidget {
                             ),
                           );
                         },
-                        child: Text("View all"),
+                        child: Text("View all".tr()),
                       ),
                     ],
                   ),
@@ -135,7 +136,7 @@ class HomePage extends StatelessWidget {
                                       Row(
                                         children: [
                                           Text(
-                                            place["name"] ?? 'No Name',
+                                            place["name"] ?? 'No Name'.tr(),
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                             ),

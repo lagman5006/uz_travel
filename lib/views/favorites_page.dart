@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +35,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
             },
           ),
         ),
-        title: Text("Favorite Places"),
+        title: Text("Favorite Places".tr()),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
@@ -43,7 +44,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
             return uzTravelProvider.isLoading
                 ? Center(child: CircularProgressIndicator())
                 : uzTravelProvider.favouritePlaces.isEmpty
-                ? Center(child: Text("No favorite places yet."))
+                ? Center(child: Text("No favorite places yet.".tr()))
                 : Column(
                     children: [
                       Expanded(
@@ -93,7 +94,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                                       ),
                                     ),
                                     Text(
-                                      place["name"] ?? "No Name",
+                                      place["name"] ?? "No Name".tr(),
                                       style: TextStyle(
                                         fontSize: 14.sp,
                                         fontWeight: FontWeight.bold,
@@ -106,7 +107,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
                                         Icon(Icons.location_on_outlined),
                                         Text(
                                           place["location"] ??
-                                              "Unknown Location",
+                                              "Unknown Location".tr(),
                                           style: TextStyle(
                                             fontSize: 12.sp,
                                             color: Colors.grey[600],
