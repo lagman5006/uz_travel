@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -141,5 +142,21 @@ class UzTravelProvider extends ChangeNotifier {
     await fetchPlaces();
     isLoading = false;
     notifyListeners();
+  }
+
+  // user profile data
+  Map<String, dynamic>? _userProfile;
+
+  Map<String, dynamic>? get userProfile => _userProfile;
+
+  Future<void> fetchUserProfile() async {
+    isLoading = true;
+    String? userId = FirebaseAuth.instance.currentUser?.uid;
+
+    final snapshot = await FirebaseFirestore.instance
+        .collection("users")
+        .doc(userId)
+        .get();
+    _userProfile = snapshot.data();
   }
 }

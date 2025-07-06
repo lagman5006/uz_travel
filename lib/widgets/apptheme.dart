@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-class Apptheme{
+class Apptheme {
   static final ThemeData lightTheme = ThemeData(
     brightness: Brightness.light,
     primaryColor: Colors.blue,
     scaffoldBackgroundColor: Colors.white,
     colorScheme: ColorScheme.light(
       primary: Colors.blue,
-      secondary: Colors.amber
+      secondary: Colors.amber,
     ),
     textTheme: TextTheme(
-      bodyLarge: TextStyle(color: Colors.black)
-    )
+      bodyLarge: TextStyle(color: Colors.black),
+    ),
   );
 
   static final ThemeData darkTheme = ThemeData(
@@ -25,7 +25,6 @@ class Apptheme{
     ),
     textTheme: TextTheme(
       bodyLarge: TextStyle(color: Colors.red),
-
-    )
+    ),
   );
 }
