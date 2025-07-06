@@ -10,11 +10,12 @@ import "home_page.dart";
 class MainScaffold extends StatelessWidget {
   const MainScaffold({super.key});
 
+
   @override
   Widget build(BuildContext context) {
     return Consumer<UzTravelProvider>(
       builder: (context, uzTravelProvider, child) {
-        final List<Widget> _pages = [
+        final List<Widget> pages = [
           HomePage(),
           CalendarPage(),
           SearchPage(),
@@ -25,7 +26,7 @@ class MainScaffold extends StatelessWidget {
         return Scaffold(
           body: IndexedStack(
             index: uzTravelProvider.currentIndex,
-            children: _pages,
+            children: pages,
           ),
           floatingActionButton: FloatingActionButton(
             onPressed: () => uzTravelProvider.updateIndex(2),

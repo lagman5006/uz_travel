@@ -44,25 +44,12 @@ class OnboardingPage extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(height: 40.h),
-                                RichText(
-                                  text: TextSpan(
-                                    text: "life_is_short_and_the_world_is_wide"
-                                        .tr(),
-                                    style: TextStyle(
-                                      fontFamily: FontFamily.geometr415BlkBT,
-                                      fontSize: 25.sp,
-                                      color: Colors.black,
-                                    ),
-                                    children: [
-                                      TextSpan(
-                                        text: "wide".tr(),
-                                        style: TextStyle(
-                                          color: Colors.deepOrange,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                                Row(
+                                  children: [
+                                    Text("life_is_short_and_the_world_is_wide".tr(),style: TextStyle(fontSize: 23),),
+                                  ],
                                 ),
+                                Text("wide".tr(),style: TextStyle(fontSize: 23),),
                                 SizedBox(height: 20.h),
                                 Padding(
                                   padding: EdgeInsets.symmetric(

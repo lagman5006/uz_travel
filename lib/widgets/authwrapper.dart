@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uz_travel/views/home_page/home_page.dart';
+import 'package:uz_travel/views/home_page/mainscaffold.dart';
 import 'package:uz_travel/views/onboarding_page.dart';
 
 class Authwrapper extends StatelessWidget {
@@ -10,7 +11,7 @@ class Authwrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = FirebaseAuth.instance.currentUser;
     if (user != null){
-      return HomePage();
+      return MainScaffold();
     }else{
       return OnboardingPage();
     }

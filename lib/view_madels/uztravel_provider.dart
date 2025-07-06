@@ -149,13 +149,25 @@ class UzTravelProvider extends ChangeNotifier {
   Map<String, dynamic>? get userProfile => _userProfile;
 
   Future<void> fetchUserProfile() async {
-    isLoading = true;
-    String? userId = FirebaseAuth.instance.currentUser?.uid;
+    try {
+      isLoading = true;
+      String? userId = FirebaseAuth.instance.currentUser?.uid;
+      if (userId == null) {
+        _userProfile = null;
+        throw Exception('No user is logged in');
+      }
 
-    final snapshot = await FirebaseFirestore.instance
-        .collection("users")
-        .doc(userId)
-        .get();
-    _userProfile = snapshot.data();
+      final snapshot = await FirebaseFirestore.instance
+          .collection("users")
+          .doc(userId)
+          .get();
+
+      _userProfile = snapshot.exists ? snapshot.data() : null;
+    } catch (e) {
+      _userProfile = null;
+    } finally {
+      isLoading = false;
+      notifyListeners();
+    }
   }
 }

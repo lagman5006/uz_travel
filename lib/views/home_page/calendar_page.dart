@@ -5,8 +5,28 @@ import 'package:provider/provider.dart';
 import 'package:uz_travel/view_madels/uztravel_provider.dart';
 import 'package:uz_travel/views/home_page/details.dart';
 
-class CalendarPage extends StatelessWidget {
+class CalendarPage extends StatefulWidget {
   const CalendarPage({super.key});
+
+  @override
+  State<CalendarPage> createState() => _CalendarPageState();
+}
+
+class _CalendarPageState extends State<CalendarPage> {
+  DateTime? _selectedDate;
+
+  @override
+  void initState() {
+    _selectedDate = DateTime.now();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<UzTravelProvider>(
+        context,
+        listen: false,
+      ).fetchPlacesByDate(_selectedDate!);
+    });
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +45,12 @@ class CalendarPage extends StatelessWidget {
                 weekdayLabelTextStyle: TextStyle(color: Colors.grey),
                 dayTextStyle: TextStyle(color: Colors.black),
               ),
-              value: [DateTime.now()],
+              value: _selectedDate != null ? [_selectedDate] : [DateTime.now()],
               onValueChanged: (value) {
                 if (value.isNotEmpty) {
-                  selectedDate = value.first;
-                  provider.fetchPlacesByDate(selectedDate);
+                  setState(() {
+                    _selectedDate = value.first;
+                  });
                 }
               },
             ),

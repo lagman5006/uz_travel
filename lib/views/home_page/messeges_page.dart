@@ -47,8 +47,9 @@ class _MessagesPageState extends State<MessegesPage> {
                   .orderBy("timestamp", descending: true)
                   .snapshots(),
               builder: (context, snapshot) {
-                if (!snapshot.hasData)
+                if (!snapshot.hasData) {
                   return Center(child: CircularProgressIndicator());
+                }
                 final docs = snapshot.data!.docs;
 
                 return ListView.builder(

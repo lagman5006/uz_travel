@@ -7,8 +7,22 @@ import 'package:uz_travel/gen/assets.gen.dart';
 import 'package:uz_travel/views/favorites_page.dart';
     import 'package:uz_travel/view_madels/uztravel_provider.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
+
+  @override
+  _ProfilePageState createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  late Future<void> _fetchProfileFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize the future once when the widget is created
+    _fetchProfileFuture = Provider.of<UzTravelProvider>(context, listen: false).fetchUserProfile();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,19 +46,23 @@ class ProfilePage extends StatelessWidget {
             actions: [
               IconButton(
                 icon: Assets.svgs.edit.svg(width: 20.w, height: 20.h),
-                onPressed: () {
-                },
+                onPressed: () {},
               ),
             ],
           ),
-          backgroundColor: Colors.white,
           body: FutureBuilder(
-            future: provider.fetchUserProfile(),
+            future: _fetchProfileFuture, // Use the initialized future
             builder: (context, snapshot) {
-              if (snapshot.connectionState == ConnectionState.waiting) {
+              if (snapshot.connectionState == ConnectionState.waiting || provider.isLoading) {
                 return Center(child: CircularProgressIndicator());
               }
+              if (snapshot.hasError) {
+                return Center(child: Text('Error loading profile'));
+              }
               final userProfile = provider.userProfile;
+              if (userProfile == null) {
+                return Center(child: Text('No profile data available'));
+              }
               return SingleChildScrollView(
                 padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
                 child: Column(
@@ -56,17 +74,17 @@ class ProfilePage extends StatelessWidget {
                     ),
                     SizedBox(height: 10.h),
                     Text(
-                      userProfile?["firstName"] ?? 'User',
+                      userProfile["firstName"] ?? 'User',
                       style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 5.h),
                     Text(
-                      userProfile?["lastName"] ?? '',
+                      userProfile["lastName"] ?? '',
                       style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
                     ),
                     SizedBox(height: 5.h),
                     Text(
-                      userProfile?["email"] ?? 'No email',
+                      userProfile["email"] ?? 'No email',
                       style: TextStyle(fontSize: 16.sp, color: Colors.grey),
                     ),
                     SizedBox(height: 30.h),
@@ -103,8 +121,7 @@ class ProfilePage extends StatelessWidget {
                             leading: Icon(CupertinoIcons.person),
                             title: Text("Profile".tr()),
                             trailing: Icon(CupertinoIcons.forward),
-                            onTap: () {
-                            },
+                            onTap: () {},
                           ),
                           Divider(
                             thickness: 0.5,
@@ -120,9 +137,7 @@ class ProfilePage extends StatelessWidget {
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) {
-                                    return FavoritesPage();
-                                  },
+                                  builder: (context) => FavoritesPage(),
                                 ),
                               );
                             },
@@ -138,8 +153,7 @@ class ProfilePage extends StatelessWidget {
                             title: Text("previous_trips".tr()),
                             leading: Assets.svgs.trip.svg(width: 80.w, height: 80.h),
                             trailing: Icon(CupertinoIcons.forward),
-                            onTap: () {
-                            },
+                            onTap: () {},
                           ),
                           SizedBox(height: 10.h),
                           Divider(
@@ -155,12 +169,11 @@ class ProfilePage extends StatelessWidget {
                               height: 80.h,
                             ),
                             trailing: Icon(CupertinoIcons.forward),
-                            onTap: () {
-                            },
+                            onTap: () {},
                           ),
                           Divider(
                             thickness: 0.5,
-                            color: Colors.grey.withOpacity(0.3),
+                            color: Colors.grey.withValues(alpha: 0.3),
                             indent: 16,
                             endIndent: 16,
                           ),
@@ -168,8 +181,7 @@ class ProfilePage extends StatelessWidget {
                             title: Text("previous_trips".tr()),
                             leading: Assets.svgs.version.svg(width: 80.w, height: 80.h),
                             trailing: Icon(CupertinoIcons.forward),
-                            onTap: () {
-                            },
+                            onTap: () {},
                           ),
                         ],
                       ),
