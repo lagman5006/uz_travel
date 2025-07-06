@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:uz_travel/gen/assets.gen.dart';
 import 'package:uz_travel/views/favorites_page.dart';
-import 'package:uz_travel/view_madels/uztravel_provider.dart';
+    import 'package:uz_travel/view_madels/uztravel_provider.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
